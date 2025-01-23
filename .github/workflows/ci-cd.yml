@@ -75,7 +75,7 @@ jobs:
           # pm2 delete frontend || true
 
           # Backend Deployment
-          sudo mv /home/ubuntu/deploy/*.jar /home/ubuntu/backend/app.jar
+          sudo mv /home/ubuntu/deploy/LifeOnHana_BE/build/libs/*.jar /home/ubuntu/backend/app.jar
           sudo systemctl restart backend
 #
 #          # Frontend Deployment
