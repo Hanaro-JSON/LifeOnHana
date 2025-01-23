@@ -19,8 +19,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       with:
-        submodules: true
+        submodules: recursive
         token: ${{ secrets.GH_ACCESS_TOKEN }} 
+
+    - name: sync submodule
+      run: |
+        git submodule sync
+        git submodule update --init --recursive
 
     - name: Set up Java (Backend)
       uses: actions/setup-java@v3
