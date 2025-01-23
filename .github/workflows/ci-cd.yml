@@ -31,19 +31,19 @@ jobs:
       run: |
         chmod +x gradlew
         ./gradlew clean bootJar -x test
+#
+#    # pnpm 설치
+#    - name: Install pnpm
+#      uses: pnpm/action-setup@v2
+#      with:
+#        version: 8
 
-    # pnpm 설치
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
-
-    - name: Set up Node.js (Frontend)
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-        cache: 'pnpm'
-        cache-dependency-path: './LifeOnHana_FE/life_on_hana/pnpm-lock.yaml'
+#    - name: Set up Node.js (Frontend)
+#      uses: actions/setup-node@v3
+#      with:
+#        node-version: '20'
+#        cache: 'pnpm'
+#        cache-dependency-path: './LifeOnHana_FE/life_on_hana/pnpm-lock.yaml'
 
 #    # Frontend 빌드
 #    - name: Build Frontend
