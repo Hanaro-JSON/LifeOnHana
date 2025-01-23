@@ -52,15 +52,15 @@ jobs:
 #        pnpm install
 #        pnpm build
 
-#    # 빌드 파일 EC2로 전송
-#    - name: Copy files to EC2
-#      uses: appleboy/scp-action@master
-#      with:
-#        host: ${{ secrets.EC2_HOST }}
-#        username: ubuntu
-#        key: ${{ secrets.EC2_SSH_KEY }}
-#        source: "LifeOnHana_BE/build/libs/*.jar,LifeOnHana_FE/life_on_hana/.next/*"
-#        target: "/home/ubuntu/deploy"
+    # 빌드 파일 EC2로 전송
+    - name: Copy files to EC2
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
+        source: "LifeOnHana_BE/build/libs/*.jar"
+        target: "/home/ubuntu/deploy"
 
     # EC2에서 배포 실행
     - name: Deploy to EC2
@@ -72,7 +72,7 @@ jobs:
         script: |
           # Kill existing processes
           sudo systemctl stop backend || true
-          pm2 delete frontend || true
+          # pm2 delete frontend || true
 
           # Backend Deployment
           sudo mv /home/ubuntu/deploy/*.jar /home/ubuntu/backend/app.jar
