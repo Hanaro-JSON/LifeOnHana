@@ -26,7 +26,6 @@ jobs:
       run: |
         git submodule sync
         git submodule update --init --recursive
-        git submodule foreach --recursive 'git fetch --all && git pull --rebase'
 
     - name: Set up Java (Backend)
       uses: actions/setup-java@v3
