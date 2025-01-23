@@ -45,22 +45,22 @@ jobs:
         cache: 'pnpm'
         cache-dependency-path: './LifeOnHana_FE/life_on_hana/pnpm-lock.yaml'
 
-    # Frontend 빌드
-    - name: Build Frontend
-      working-directory: ./LifeOnHana_FE/life_on_hana
-      run: |
-        pnpm install
-        pnpm build
+#    # Frontend 빌드
+#    - name: Build Frontend
+#      working-directory: ./LifeOnHana_FE/life_on_hana
+#      run: |
+#        pnpm install
+#        pnpm build
 
-    # 빌드 파일 EC2로 전송
-    - name: Copy files to EC2
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ubuntu
-        key: ${{ secrets.EC2_SSH_KEY }}
-        source: "LifeOnHana_BE/build/libs/*.jar,LifeOnHana_FE/life_on_hana/.next/*"
-        target: "/home/ubuntu/deploy"
+#    # 빌드 파일 EC2로 전송
+#    - name: Copy files to EC2
+#      uses: appleboy/scp-action@master
+#      with:
+#        host: ${{ secrets.EC2_HOST }}
+#        username: ubuntu
+#        key: ${{ secrets.EC2_SSH_KEY }}
+#        source: "LifeOnHana_BE/build/libs/*.jar,LifeOnHana_FE/life_on_hana/.next/*"
+#        target: "/home/ubuntu/deploy"
 
     # EC2에서 배포 실행
     - name: Deploy to EC2
@@ -77,9 +77,9 @@ jobs:
           # Backend Deployment
           sudo mv /home/ubuntu/deploy/*.jar /home/ubuntu/backend/app.jar
           sudo systemctl restart backend
-
-          # Frontend Deployment
-          rm -rf /home/ubuntu/frontend/.next
-          mv /home/ubuntu/deploy/.next /home/ubuntu/frontend/
-          cd /home/ubuntu/frontend
-          pm2 start npm --name "frontend" -- start
+#
+#          # Frontend Deployment
+#          rm -rf /home/ubuntu/frontend/.next
+#          mv /home/ubuntu/deploy/.next /home/ubuntu/frontend/
+#          cd /home/ubuntu/frontend
+#          pm2 start npm --name "frontend" -- start
