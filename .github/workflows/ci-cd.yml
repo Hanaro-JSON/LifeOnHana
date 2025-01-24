@@ -25,12 +25,6 @@ jobs:
     - name: sync submodule
       run: |
         git submodule sync
-        git submodule update --init --recursive
-        git fetch
-        cd LifeOnHana_BE
-        git checkout develop
-        git pull origin develop
-        cd ..
         git submodule update --remote --merge
         
 
