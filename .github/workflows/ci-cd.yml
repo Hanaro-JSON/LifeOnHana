@@ -26,6 +26,10 @@ jobs:
       run: |
         git submodule sync
         git submodule update --init --recursive
+        cd LifeOnHana_BE
+        git checkout develop
+        git pull origin develop
+        
 
     - name: Set up Java (Backend)
       uses: actions/setup-java@v3
