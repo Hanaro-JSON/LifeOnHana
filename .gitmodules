@@ -1,7 +1,7 @@
 [submodule "LifeOnHana_BE"]
 	path = LifeOnHana_BE
 	url = https://github.com/Hanaro-JSON/LifeOnHana_BE.git
-	branch = develop
+	branch = JSON-41--develop
 
 [submodule "LifeOnHana_FE"]
 	path = LifeOnHana_FE
