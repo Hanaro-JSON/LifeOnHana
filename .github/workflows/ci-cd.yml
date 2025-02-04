@@ -29,8 +29,8 @@ jobs:
         git submodule update --remote --merge
         cd LifeOnHana_BE
         git fetch origin
-        git checkout JSON-41--develop || git checkout -b JSON-41--develop origin/JSON-41--develop
-        git pull origin JSON-41--develop
+        git checkout main || git checkout -b main origin/main
+        git pull origin main
         cd ..
 
     - name: Cache Gradle dependencies
