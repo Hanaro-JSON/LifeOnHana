@@ -7,3 +7,6 @@
 	path = LifeOnHana_FE
 	url = https://github.com/Hanaro-JSON/LifeOnHana_FE.git
 	branch = main
+[submodule "LifeOnHana_AI"]
+	path = LifeOnHana_AI
+	url = https://github.com/Hanaro-JSON/LifeOnHana_AI.git
